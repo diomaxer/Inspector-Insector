@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class PlayerExperience : MonoBehaviour
 {
-    public int exp = 0;
-    public int level = 0;
-    public int newLvl = 5;
+    public int exp;
+    public int level;
+    public int newLvl;
+    private int canvases = 0;
+
+    private void Start()
+    {
+        exp = gameObject.GetComponent<PlayerMovement>().exp;
+        level = gameObject.GetComponent<PlayerMovement>().level;
+        newLvl = gameObject.GetComponent<PlayerMovement>().newLvl;
+    }
 
     public void GivetExp(int newExp)
     {
         exp += newExp;
+        //exp += 205;
 
-        if (exp >= newLvl)
+        while (exp >= newLvl)
         {
             level += 1;
             exp -= newLvl;
             newLvl *= 2;
-            gameObject.GetComponent<Buffs>().RandomBuff();
+            canvases++;
         }
+        if (canvases > 0)
+        {
+            GameObject.FindGameObjectWithTag("Event").GetComponent<SpawnBuffs>().SpawnCanvas(canvases);
+        }
+        canvases = 0;
     }
 }

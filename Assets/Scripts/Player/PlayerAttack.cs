@@ -12,8 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        cooldown = gameObject.GetComponent<Buffs>().cooldown;
-        Debug.Log(cooldown);
+        cooldown = gameObject.GetComponent<PlayerMovement>().cooldown;
     }
 
 

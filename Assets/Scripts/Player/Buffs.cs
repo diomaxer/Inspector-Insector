@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Buffs : MonoBehaviour
 {
-    public float speed = 0.3f;
-    public float damage = 10f;
-    public float cooldown = 1f;
-    public float maxHealth = 100;
-    public float playerSpeed = 4f;
+    public float bulletSpeed;
+    public float damage;
+    public float cooldown;
+    public float maxHealth;
+
+    private void Start()
+    {
+        bulletSpeed = gameObject.GetComponent<PlayerMovement>().bulletSpeed;
+        damage = gameObject.GetComponent<PlayerMovement>().damage;
+        cooldown = gameObject.GetComponent<PlayerMovement>().cooldown;
+        maxHealth = gameObject.GetComponent<PlayerMovement>().maxHealth;
+    }
 
 
     public void RandomBuff()

@@ -28,6 +28,5 @@ public class HealthBar : MonoBehaviour
     {
         slider.value = health;
         healtText.text = "HP " + (health / maxHealth).ToString("0 %");
-        Debug.Log(health);
     }
 }

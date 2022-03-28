@@ -8,11 +8,12 @@ public class PlayerBulletMovement : MonoBehaviour
     private Vector2 result;
 
 
-    public float bulletSpeed = 0.3f;
+    public float bulletSpeed;
 
 
     private void Start()
     {
+        bulletSpeed = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().bulletSpeed;
         Destroy(gameObject, 4f);
         Vector2 playerPos = FindObjectOfType<PlayerMovement>().transform.position;
         bulletPoint = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));

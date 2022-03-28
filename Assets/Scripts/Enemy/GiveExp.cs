@@ -10,13 +10,13 @@ public class GiveExp : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Destroy(gameObject);
+
             PlayerExperience experience = collision.gameObject.GetComponent<PlayerExperience>();
             experience.GivetExp(expPoints);
 
             ExpBar expBar = GameObject.FindGameObjectWithTag("ExpBar").GetComponent<ExpBar>();
-
             expBar.SetExp(experience.exp, experience.newLvl);
         }
-        Destroy(gameObject);
     }
 }

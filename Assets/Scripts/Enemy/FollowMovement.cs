@@ -21,7 +21,7 @@ public class FollowMovement : MonoBehaviour
         }
     }
 
-    /*private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player" && coolDown <= currentTime)
         {
@@ -33,5 +33,5 @@ public class FollowMovement : MonoBehaviour
         {
             currentTime += Time.deltaTime;
         }
-    }*/
+    }
 }

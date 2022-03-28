@@ -9,6 +9,10 @@ TagManager:
   - Exp
   - ExpBar
   - HealthBar
+  - BuffScreen
+  - Event
+  - BuffCanvas
+  - Score
   layers:
   - Default
   - TransparentFX

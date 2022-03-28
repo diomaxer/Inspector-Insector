@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float health = 100f;
-    public float maxHealth = 100f;
+    public float health;
+    public float maxHealth;
+
+    private void Start()
+    {
+        health = gameObject.GetComponent<PlayerMovement>().health;
+        maxHealth = gameObject.GetComponent<PlayerMovement>().maxHealth;
+    }
 
     public void TakeHit(float damage)
-    {
+    { 
         health -= damage;
         GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>().SetHealth(health);
 

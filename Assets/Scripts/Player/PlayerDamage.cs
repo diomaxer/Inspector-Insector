@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
-    public float damage = 10f;
+    public float damage;
+
+    private void Start()
+    {
+        damage = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().damage;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
